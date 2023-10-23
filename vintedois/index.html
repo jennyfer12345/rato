@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse</title>
+    <style>
+      header {
+        background-color: #e79eff;
+      }
+      .titulo2 {
+        text-align: center;
+      }
+      .link {
+        margin-left: 750px;
+      }
+      p {
+        font-size: large;
+      }
+      body {
+        background-color: #c3dff9;
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>Rato</h1></header>
+    <p>
+      As caixas de mensagens são mensagens curtas que o computador coloca na
+      tela para alertá-lo sobre informações importantes ou para fazer perguntas
+      antes de realizar uma tarefa.
+    </p>
+    <p>
+      Quando uma caixa de mensagem aparecer, você deverá ler a mensagem ou
+      pergunta e responder clicando no botão apropriado na caixa de mensagem.
+    </p>
+    <p>
+      Clique no link abaixo para exibir uma caixa de mensagem, leia a mensagem e
+      clique no botão apropriado na caixa.
+    </p>
+    <a class="link" href="/vintetres/"
+      >Clique em mim para exibir uma caixa de mensagem</a
+    >
+    <script>
+      let roberto = document.getElementsByClassName("link").item(0);
+      roberto.addEventListener("click", nome);
+      function nome() {
+        window.confirm("oi");
+      }
+    </script>
+  </body>
+</html>

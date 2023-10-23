@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse</title>
+    <style>
+      header {
+        background-color: #a0d995;
+      }
+      input {
+        border-radius: 5px;
+      }
+      button {
+        background-color: #c999af;
+      }
+      body {
+        background-color: #c3dff9;
+      }
+      p {
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+      }
+      .invi {
+        display: none;
+      }
+      .visivel {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>Rato</h1></header>
+    <h2>
+      <span id="nomeSobrenome"></span>
+    </h2>
+
+    <div class="text">
+      <p>
+        Pratique suas habilidades de copiar e colar <strong>copiando</strong> as
+        respostas na coluna da esquerda e <strong>colando</strong> -as ao lado
+        das perguntas corretas à direita. <br /><br />
+
+        Para <strong>copiar</strong> o texto, destaque-o com o mouse, mantenha
+        pressionada a tecla <strong>Ctrl</strong> do teclado e toque rapidamente
+        na tecla <strong>C</strong>. Para colar , clique dentro da caixa de
+        texto onde deseja colar a resposta, mantenha pressionada a tecla Ctrl e
+        toque rapidamente na tecla <strong>V</strong>.
+
+        <br />
+        <br />
+        Você deve responder todas as perguntas corretamente antes de continuar.
+      </p>
+    </div>
+    <table style="width: 30%">
+      <tbody>
+        <tr>
+          <th style="padding-right: 1px"><strong>Respostas:</strong></th>
+          <th style="padding: 10px; float: left"><strong>Questões:</strong></th>
+        </tr>
+        <tr>
+          <td>Vermelho Branco e Sangue Azul</td>
+          <td>A. Qual o melhor personagem de Jujutsu kaisen?</td>
+          <td>
+            <input
+              onpaste="handlePaste1(event)"
+              readonly
+              style="margin-left: 10px"
+              type="text"
+              id="ip1"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Harry Styles</td>
+          <td>B. Qual é o melhor animal que existe?</td>
+          <td>
+            <input
+              onpaste="handlePaste2(event)"
+              readonly
+              style="margin-left: 10px"
+              type="text"
+              id="ip2"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Gojo</td>
+          <td>C. Qual o melhor cantor que existe?</td>
+          <td>
+            <input
+              onpaste="handlePaste3(event)"
+              readonly
+              style="margin-left: 10px"
+              type="text"
+              id="ip3"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Gatinhos</td>
+          <td>D. Qual o melhor livro que existe?</td>
+          <td>
+            <input
+              onpaste="handlePaste4(event)"
+              readonly
+              style="margin-left: 10px"
+              type="text"
+              id="ip4"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <a href="/trintaoito/"
+        ><img
+          id="finalbutton37"
+          class="invi"
+          src="http://mnl.mclinc.org/wp-content/uploads/ComputerLab/Mousercise2.0/images/continue.gif"
+          alt="botao"
+      /></a>
+    </p>
+    <script>
+      function getURLParameters() {
+        var params = {};
+        var url = window.location.href;
+        var queryString = url.split("?")[1];
+        if (queryString) {
+          var keyValuePairs = queryString.split("&");
+          keyValuePairs.forEach(function (keyValue) {
+            var pair = keyValue.split("=");
+            var key = decodeURIComponent(pair[0]);
+            var value = decodeURIComponent(pair[1]);
+            params[key] = value;
+          });
+        }
+        return params;
+      }
+      function exibirMensagemBoasVindas() {
+        var params = getURLParameters();
+        var nome = params["nome"];
+        var sobrenome = params["sobrenome"];
+        if (nome && sobrenome) {
+          var mensagem = "Parabéns  " + nome + " " + sobrenome + "!";
+          document.getElementById("nomeSobrenome").textContent = mensagem;
+        } else {
+          document.getElementById("nomeSobrenome").textContent =
+            "Seja bem-vindo(a)!";
+        }
+      }
+      window.onload = exibirMensagemBoasVindas;
+      
+      gg = 0;
+      hh = 0;
+      ii = 0;
+      jj = 0;
+      function handlePaste1(event) {
+        var clipboardData = event.clipboardData || window.clipboardData;
+        var pastedText = clipboardData.getData("text");
+        document.getElementById("ip1").value = pastedText;
+        if (pastedText == "Gojo") gg = 1;
+        if (gg == 1 && hh == 1 && ii == 1 && jj == 1) {
+          document.getElementById("finalbutton37").setAttribute("class", "visivel");
+        }
+      }
+      function handlePaste2(event) {
+        event.preventDefault();
+        var clipboardData = event.clipboardData || window.clipboardData;
+        var pastedText = clipboardData.getData("text");
+        document.getElementById("ip2").value = pastedText;
+        if (pastedText == "Gatinhos") {
+          hh = 1;
+        }
+        if (gg == 1 && hh == 1 && ii == 1 && jj == 1) {
+          document.getElementById("finalbutton37").setAttribute("class", "visivel");
+        }
+      }
+      function handlePaste3(event) {
+        event.preventDefault();
+        var clipboardData = event.clipboardData || window.clipboardData;
+        var pastedText = clipboardData.getData("text");
+        document.getElementById("ip3").value = pastedText;
+        if (pastedText == "Harry Styles") ii = 1;
+        if (gg == 1 && hh == 1 && ii == 1 && jj == 1) {
+          document.getElementById("finalbutton37").setAttribute("class", "visivel");
+        }
+      }
+      function handlePaste4(event) {
+        event.preventDefault();
+        var clipboardData = event.clipboardData || window.clipboardData;
+        var pastedText = clipboardData.getData("text");
+        document.getElementById("ip4").value = pastedText;
+        if (pastedText == "Vermelho Branco e Sangue Azul") jj = 1;
+        if (gg == 1 && hh == 1 && ii == 1 && jj == 1) {
+          document.getElementById("finalbutton37").setAttribute("class", "visivel");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse</title>
+    <style>
+      header {
+        background-color: #ff85d5;
+    }
+    .continue{
+    border-radius: 20%;
+    width: 100px;
+    height: 30px;
+    margin-left: 250px;
+    display: none;
+    }
+
+    img.c1{
+    width: 100px;
+    height: 100px;
+    grid-column: 4;
+    grid-row: 1;
+    }
+
+    img.c2{
+    width: 100px;
+    height: 100px;
+    grid-column: 4;
+    grid-row: 2;
+    }
+    img.c3{
+    width: 100px;
+    height: 100px;
+    grid-column: 4;
+    grid-row: 3;
+
+    }
+    .imagens{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+    }
+    img.d1{
+    width: 50px;
+    height: 50px;
+    grid-column: 3;
+    grid-row: 1;
+    display: none;
+    }
+
+    img.d2{
+    width: 50px;
+    height: 50px;
+    grid-column: 3;
+    grid-row: 2;
+    display: none;
+   }
+    img.d3{
+    width: 50px;
+    height: 50px;
+    grid-column: 3;
+    grid-row: 3;
+    display: none;
+
+   }
+    img.d4{
+    width: 50px;
+    height: 50px;
+    grid-column: 5;
+    grid-row: 1;
+    display: none;
+   }
+    img.d5{
+    width: 50px;
+    height: 50px;
+    grid-column: 5;
+    grid-row: 2;
+    display: none;
+   }
+    img.d6{
+    width: 50px;
+    height: 50px;
+    grid-column: 5;
+    grid-row: 3;
+    display: none;
+   }
+    a.continue2{
+    border-radius: 20%;
+    width: 100px;
+    height: 30px;
+    display: none;
+    grid-column: 4;
+    grid-row: 4;
+   } 
+   p {
+    font-size: large;
+   }
+   body {
+        background-color: #c3dff9;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <header><h1>Rato</h1></header>
+    </div>
+    <p>
+      Clique em cada um dos botões abaixo para continuar para a próxima página.
+    </p>
+    <div class="imagens">
+      <img class="c1" src="/imagem/1.jpg" onclick="trocar1(1)"></button>
+      <img class="c2" src="/imagem/2.jpg" onclick="trocar2(1)"></button>
+      <img class="c3" src="/imagem/3.jpg" onclick="trocar3(1)"></button>
+      <img class="d1" src="/imagem/checkmark1.gif" alt="verify">
+      <img class="d2" src="/imagem/checkmark1.gif" alt="verify">
+      <img class="d3" src="/imagem/checkmark1.gif" alt="verify">
+      <a class="continue2" href="/vinteum/"><button class="continue2" onclick="continuar">Continue</button></a>
+      </div>
+      <script>
+      var totalBotoes = 3;
+      var botoesClicados = 0;
+      function verificarBotoesClicados() {
+          if (botoesClicados === totalBotoes) {
+              document.getElementsByClassName('continue2')[0].style.display = 'block';
+          }
+      }
+      function trocar1(classeBotao) {
+          // Oculta todas as imagens
+          var imagens = document.querySelectorAll('img.d1');
+          imagens.forEach(function(imagem) {
+              imagem.style.display = 'block';
+          });
+          botoesClicados++;
+          verificarBotoesClicados();
+      }
+      function trocar2(classeBotao) {
+          // Oculta todas as imagens
+          var imagens = document.querySelectorAll('img.d2');
+          imagens.forEach(function(imagem) {
+              imagem.style.display = 'block';
+          });
+          botoesClicados++;
+          verificarBotoesClicados();
+      }
+      function trocar3(classeBotao) {
+          // Oculta todas as imagens
+          var imagens = document.querySelectorAll('img.d3');
+          imagens.forEach(function(imagem) {
+              imagem.style.display = 'block';
+          });
+          botoesClicados++;
+          verificarBotoesClicados();
+      }
+      </script>
+  </body>
+</html>

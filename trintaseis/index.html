@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse</title>
+    <style>
+      header {
+        background-color: #c999af;
+      }
+      input {
+        border-radius: 5px;
+      }
+      button {
+        background-color: #c999af;
+      }
+      p {
+        font-size: large;
+      }
+      body {
+        background-color: #c3dff9;
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>Rato</h1></header>
+    <div class="text">
+      <p>
+        As finas caixas brancas abaixo são caixas de texto. Clique na primeira
+        caixa com o mouse e digite seu primeiro nome. Em seguida, clique dentro
+        da segunda caixa e digite seu sobrenome. <br /><br />Quando terminar,
+        clique no botão 'Enviar'.
+      </p>
+    </div>
+
+    <div class="form-container">
+      <h2></h2>
+
+      <form action="/trintasete/" method="get" onsubmit="passarValores()">
+        <label for="nome">Nome:</label>
+
+        <input type="text" id="nome" name="nome" class="form-input" required />
+
+        <label for="sobrenome">Sobrenome:</label>
+
+        <input
+          type="text"
+          id="sobrenome"
+          name="sobrenome"
+          class="form-input"
+          required
+        />
+
+        <input type="submit" value="Enviar" class="form-button" />
+      </form>
+    </div>
+
+    <script>
+      function passarValores() {
+        var nome = document.getElementById("nome").value;
+
+        var sobrenome = document.getElementById("sobrenome").value;
+
+        var url =
+          "37.html?nome=" +
+          encodeURIComponent(nome) +
+          "&sobrenome=" +
+          encodeURIComponent(sobrenome);
+
+        window.location.href = url;
+
+        return false;
+      }
+    </script>
+  </body>
+</html>

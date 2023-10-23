@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse</title>
+    <style>
+      header {
+        background-color: #ff6961;
+      }
+      .titulo2 {
+        text-align: center;
+      }
+      img {
+        height: 100px;
+        width: 100px;
+        margin-left: 910px;
+      }
+      .texto1 {
+        text-align: center;
+      }
+      .botoes {
+        height: 50px;
+        width: 70px;
+        margin-left: 850px;
+        display: flex;
+        gap: 100px;
+      }
+      p {
+        font-size: large;
+      }
+      body {
+        background-color: #c3dff9;
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>Mousercise</h1></header>
+    <div class="pa">
+      <p>
+        <strong>Clique duas vezes </strong>em cada cada imagem ao lado e
+        prossiga para a próxima página.
+      </p>
+    </div>
+
+    <div class="gallery">
+      <img src="/imagem/ASH.jpg" alt="Imagem 1" />
+
+      <img src="/imagem/ash2.jpg" alt="Imagem 2" />
+
+      <img src="/imagem/ash3.jpg" alt="Imagem 3" />
+    </div>
+
+    <div class="fotos2">
+      <img src="/imagem/eiji.jpg" alt="Imagem 4" />
+
+      <img src="/imagem/eiji2.jpg" alt="Imagem 5" />
+
+      <img src="/imagem/eiji3.jpg" alt="Imagem 6" />
+    </div>
+    <button id="continuar" style="display: none">Continuar</button>
+
+    <script>
+      const imagesGallery = document.querySelectorAll(".gallery img");
+      const imagesFotos2 = document.querySelectorAll(".fotos2 img");
+      const continuarButton = document.getElementById("continuar");
+    
+      function hideImage(image) {
+        image.addEventListener("dblclick", () => {
+          image.style.display = "none";
+          const allImagesHidden = [...imagesGallery, ...imagesFotos2].every(
+            (img) => img.style.display === "none"
+          );
+          if (allImagesHidden) {
+            continuarButton.style.display = "block";
+          }
+        });
+      }
+    
+      imagesGallery.forEach((image) => {
+        hideImage(image);
+      });
+    
+      imagesFotos2.forEach((image) => {
+        hideImage(image);
+      });
+    
+      continuarButton.addEventListener("click", () => {
+        window.location.href = "/vintedois";
+      });
+    </script>
+    
+  </body>
+</html>

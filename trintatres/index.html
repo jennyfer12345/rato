@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse</title>
+    <style>
+      header {
+        background-color: #ebf3a0;
+      }
+      .visivel {
+        display: block;
+      }
+      .invi {
+        display: none;
+      }
+      p {
+        font-size: large;
+      }
+      body {
+        background-color: #c3dff9;
+      }
+      .chopper {
+        margin-left: 1200px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>Rato</h1></header>
+    <div id="32">
+      <p>
+        Selecione <strong> "Tony Tony Chopper" </strong> na caixa de listagem
+        suspensa e clique no botão 'Continuar'.
+      </p>
+      <br />
+      <select name="select1" id="s1" onchange="validation()">
+        <option value="so1">Monkey D. Luffy</option>
+        <option value="so2">Roronoa Zoro</option>
+        <option value="so3">Nami</option>
+        <option value="so4" id="valid1">Tony Tony Chopper</option>
+        <option value="so3">Sanji</option>
+      </select>
+      <p>
+        <a href="/trintaquatro/"
+          ><img
+            onclick="prox32()"
+            class="invi"
+            id="finalbutton32"
+            src="http://mnl.mclinc.org/wp-content/uploads/ComputerLab/Mousercise2.0/images/continue.gif"
+            alt="botao"
+          />
+        </a>
+      </p>
+    </div>
+    <img class="chopper" src="/imagem/chopper.jpg" alt="">
+    <script>
+      function validation() {
+        if (document.getElementById("s1").value == "so4")
+          document.getElementById("finalbutton32").setAttribute("class", "visivel");
+        else
+          document.getElementById("finalbutton32").setAttribute("class", "invi");
+      }
+
+      function prox32() {
+        document.getElementById("32").setAttribute("class", "invi");
+        document.getElementById("33").setAttribute("class", "visivel");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse</title>
+    <style>
+      header {
+        background-color: #98f6a9;
+      }
+      p {
+        font-size: large;
+      }
+      body {
+        background-color: #c3dff9;
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>Rato</h1></header>
+    <p>
+      As caixas de seleção permitem selecionar uma ou mais opções de um grupo de
+      opções. Clique dentro de cada uma das caixas de seleção brancas abaixo
+      para continuar
+    </p>
+    <p><input class="checkbox" type="checkbox" />O Ladrão de Raios</p>
+    <p><input class="checkbox" type="checkbox" />O Mar de Monstros</p>
+    <p><input class="checkbox" type="checkbox" />A Maldição do Titã</p>
+    <p><input class="checkbox" type="checkbox" />A Batalha do Labirinto</p>
+    <p><input class="checkbox" type="checkbox" />O Último Olimpiano</p>
+    <div class="Botao" id="continueButton" style="display: none">
+      <a href="/vintenove/"><img src="/imagem/continue.gif" alt="" /></a>
+    </div>
+    <script>
+      const checkboxes = document.querySelectorAll(".checkbox");
+      const continueButton = document.getElementById("continueButton");
+      function checkIfAllChecked() {
+        const allChecked = [...checkboxes].every(
+          (checkbox) => checkbox.checked
+        );
+        if (allChecked) {
+          continueButton.style.display = "block";
+        } else {
+          continueButton.style.display = "none";
+        }
+      }
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener("click", checkIfAllChecked);
+      });
+    </script>
+  </body>
+</html>

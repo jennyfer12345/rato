@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse</title>
+    <style>
+      header {
+        background-color: #ffe180;
+      }
+      #quadro1 {
+        height: 200px;
+        width: 200px;
+        background-color: red;
+      }
+      .quadro2 {
+        height: 350px;
+        width: 350px;
+        background-color: #888a8a;
+        display: block;
+        margin: auto;
+      }
+      .bomba {
+        width: 150px;
+        height: 150px;
+      }
+      #botaoContinue {
+        margin-left: 900px;
+        margin-top: 100px;
+      }
+      p {
+        font-size: large;
+      }
+      body {
+        background-color: #c3dff9;
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>Rato</h1></header>
+    <p>
+      “Clicar e arrastar” é uma forma de mover determinados objetos na tela.
+      Para mover um objeto, coloque o cursor do mouse sobre ele, pressione e
+      segure o botão esquerdo do mouse e mova o mouse. Depois de "arrastar" o
+      objeto para o local desejado, solte o botão do mouse.
+    </p>
+    <p>
+      Clique e arraste o circulo vermelho para que fique dentro do quadrado
+      cinza.
+    </p>
+    <div draggable="true" ondragstart="onDragStart(event);" id="quadro1">
+    </div>
+    <div
+      ondrop="onDrop(event);"
+      ondragover="onDragOver(event);"
+      class="quadro2"
+    ></div>
+    <a href="/vinteoito/"
+      ><img id="botaoContinue" src="/imagem/continue.gif" style="display: none"
+    /></a>
+    <script>
+      function onDragStart(event) {
+        event.dataTransfer.setData("text/plain", event.target.id);
+        event.currentTarget.style.backgroundColor = "red";
+      }
+      function onDragOver(event) {
+        event.preventDefault();
+      }
+      function onDrop(event) {
+        const id = event.dataTransfer.getData("text/plain");
+        const NarutoElement = document.getElementById(id);
+        const Kyubi = event.target;
+        Kyubi.appendChild(NarutoElement);
+        event.dataTransfer.clearData();
+      }
+      function onDrop(event) {
+        const id = event.dataTransfer.getData("text/plain");
+        const NarutoElement = document.getElementById(id);
+        const Kyubi = event.target;
+        if (Kyubi.classList.contains("quadro2")) {
+          Kyubi.appendChild(NarutoElement);
+          event.dataTransfer.clearData();
+          const botaoContinue = document.getElementById("botaoContinue");
+          botaoContinue.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>

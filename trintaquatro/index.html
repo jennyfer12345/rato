@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse</title>
+    <style>
+      header {
+        background-color: #c8ca66;
+      }
+      .visivel {
+        display: block;
+      }
+      .invi {
+        display: none;
+      }
+      #finalbutton34 {
+        margin-left: 890px;
+      }
+      p {
+        font-size: large;
+        text-align: center;
+      }
+      body {
+        background-color: #c3dff9;
+      }
+      .levi {
+        width: 400px;
+        margin-left: 750px;
+        margin-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>Rato</h1></header>
+    <div id="34">
+      <p>
+        A caixa branca abaixo é uma scroll list. Use a barra de rolagem no lado
+        direito da lista para navegar pelas opções disponíveis. Clique na opção
+        para selecioná-la.
+      </p>
+      <p>
+        Selecione o personagem <strong>Levi Ackerman</strong>, e depois
+        continue.
+      </p>
+      <select
+        style="display: block; margin-left: auto; margin-right: auto"
+        name="select3"
+        id="s3"
+        multiple
+        size="4"
+        onchange="validation3()"
+      >
+        <option value="jan">Eren Yeager</option>
+        <option value="fev">Armin Arlert</option>
+        <option value="mar">Mikasa Ackerman</option>
+        <option value="abr">Annie Leonhart</option>
+        <option value="mai">Erwin Smith</option>
+        <option value="jun">Hange Zoe</option>
+        <option value="jul">Jean Kirstein</option>
+        <option value="ago">Sasha Braus</option>
+        <option value="set">Connie Springer</option>
+        <option value="out">Reiner Braun</option>
+        <option value="nov">Bertolt Hoover</option>
+        <option value="dez">Levi Ackerman</option>
+      </select>
+      <p>
+        <a href="/trintacinco/">
+          <img
+            onclick="prox34()"
+            class="invi"
+            id="finalbutton34"
+            src="http://mnl.mclinc.org/wp-content/uploads/ComputerLab/Mousercise2.0/images/continue.gif"
+            alt="botão"
+          />
+        </a>
+      </p>
+    </div>
+    <img class="levi" src="/imagem/levi.jpg" alt="" />
+    <script>
+      function validation3() {
+        let selectedOptions = document.getElementById("s3").selectedOptions;
+        let selectedOptionValues = Array.from(selectedOptions).map(
+          (option) => option.value
+        );
+
+        if (selectedOptionValues.includes("dez")) {
+          document
+            .getElementById("finalbutton34")
+            .setAttribute("class", "visivel");
+        } else {
+          document
+            .getElementById("finalbutton34")
+            .setAttribute("class", "invi");
+        }
+      }
+
+      function prox34() {
+        document.getElementById("34").setAttribute("class", "invi");
+        document.getElementById("35").setAttribute("class", "visivel");
+      }
+    </script>
+  </body>
+</html>

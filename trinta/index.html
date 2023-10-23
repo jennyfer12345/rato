@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse</title>
+    <style>
+      header {
+        background-color: #bc98f3;
+      }
+      p {
+        font-size: large;
+      }
+      body {
+        background-color: #c3dff9;
+      }
+    </style>
+  </head>
+  <body>
+    <header><h1>Mousercise</h1></header>
+    <p>Selecione <strong>todas</strong> as músicas do Harry Styles!!!</p>
+
+    <p><input class="checkbox" type="radio" />Fine Line</p>
+    <p><input class="checkbox" type="radio" />Falling</p>
+    <p><input class="checkbox" type="radio" />Sign of the times</p>
+    <p><input class="checkbox" type="radio" />Matilda</p>
+    <p><input class="checkbox" type="radio" />Lights up</p>
+    <div class="Botao" id="continueButton" style="display: none">
+      <a href="/trintaum/"><img src="/imagem/continue.gif" alt="" /></a>
+    </div>
+    <script>
+      const checkboxes = document.querySelectorAll(".checkbox");
+      const continueButton = document.getElementById("continueButton");
+      function checkIfAllChecked() {
+        const allChecked = [...checkboxes].every((radio) => radio.checked);
+        if (allChecked) {
+          continueButton.style.display = "block";
+        } else {
+          continueButton.style.display = "none";
+        }
+      }
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener("click", checkIfAllChecked);
+      });
+    </script>
+  </body>
+</html>
